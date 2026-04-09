@@ -1,0 +1,38 @@
+class Solution {
+    public int findMin(int[] nums) 
+    {
+        // Assign the bounds
+        int l  = 0;
+        int r = nums.length - 1;
+
+        while(l<r)
+        {
+            int mid = (l + (r-l)/2);
+
+            //Compare the mid element with rightMost Element;
+            //If nums of mid < last element in arr
+            //left space meh search kro -> shrink the righ pointer
+            if(nums[mid]<nums[nums.length-1])
+            {
+                r = mid;
+            }
+            
+            //If nums of mid > last element in arr
+            //right space meh search kro -> shrink the left pointer
+            if(nums[mid]> nums[nums.length-1])
+            {
+                l = mid+1;
+            }
+
+            if(l == r)
+            {
+                return nums[l];
+            }
+
+
+
+        }
+        return nums[l];
+        
+    }
+}
